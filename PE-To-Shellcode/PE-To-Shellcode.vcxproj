@@ -133,9 +133,6 @@
   <ItemGroup>
     <ClInclude Include="loader.h" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="loader.asm" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
