@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\aharon\\source\\repos\\PE-To-Shellcode\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{84FFE583-0801-41FD-BDD3-4C5D627FD8BB}|PE-To-Shellcode\\PE-To-Shellcode.vcxproj|C:\\Users\\aharon\\source\\repos\\PE-To-Shellcode\\PE-To-Shellcode\\loader.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{84FFE583-0801-41FD-BDD3-4C5D627FD8BB}|PE-To-Shellcode\\PE-To-Shellcode.vcxproj|solutionrelative:PE-To-Shellcode\\loader.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84FFE583-0801-41FD-BDD3-4C5D627FD8BB}|PE-To-Shellcode\\PE-To-Shellcode.vcxproj|C:\\Users\\aharon\\source\\repos\\PE-To-Shellcode\\PE-To-Shellcode\\PE-To-Shellcode.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{84FFE583-0801-41FD-BDD3-4C5D627FD8BB}|PE-To-Shellcode\\PE-To-Shellcode.vcxproj|solutionrelative:PE-To-Shellcode\\PE-To-Shellcode.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84FFE583-0801-41FD-BDD3-4C5D627FD8BB}|PE-To-Shellcode\\PE-To-Shellcode.vcxproj|C:\\Users\\aharon\\source\\repos\\PE-To-Shellcode\\PE-To-Shellcode\\loader.asm||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{84FFE583-0801-41FD-BDD3-4C5D627FD8BB}|PE-To-Shellcode\\PE-To-Shellcode.vcxproj|solutionrelative:PE-To-Shellcode\\loader.asm||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84FFE583-0801-41FD-BDD3-4C5D627FD8BB}|PE-To-Shellcode\\PE-To-Shellcode.vcxproj|C:\\Users\\aharon\\source\\repos\\PE-To-Shellcode\\PE-To-Shellcode\\loader.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{84FFE583-0801-41FD-BDD3-4C5D627FD8BB}|PE-To-Shellcode\\PE-To-Shellcode.vcxproj|solutionrelative:PE-To-Shellcode\\loader.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "loader.asm",
+              "DocumentMoniker": "C:\\Users\\aharon\\source\\repos\\PE-To-Shellcode\\PE-To-Shellcode\\loader.asm",
+              "RelativeDocumentMoniker": "PE-To-Shellcode\\loader.asm",
+              "ToolTip": "C:\\Users\\aharon\\source\\repos\\PE-To-Shellcode\\PE-To-Shellcode\\loader.asm",
+              "RelativeToolTip": "PE-To-Shellcode\\loader.asm",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-11-25T12:15:10.679Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "loader.c",
+              "DocumentMoniker": "C:\\Users\\aharon\\source\\repos\\PE-To-Shellcode\\PE-To-Shellcode\\loader.c",
+              "RelativeDocumentMoniker": "PE-To-Shellcode\\loader.c",
+              "ToolTip": "C:\\Users\\aharon\\source\\repos\\PE-To-Shellcode\\PE-To-Shellcode\\loader.c",
+              "RelativeToolTip": "PE-To-Shellcode\\loader.c",
+              "ViewState": "AQIAAOIBAAAAAAAAAAAAAPkBAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-25T11:53:43.922Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "loader.h",
+              "DocumentMoniker": "C:\\Users\\aharon\\source\\repos\\PE-To-Shellcode\\PE-To-Shellcode\\loader.h",
+              "RelativeDocumentMoniker": "PE-To-Shellcode\\loader.h",
+              "ToolTip": "C:\\Users\\aharon\\source\\repos\\PE-To-Shellcode\\PE-To-Shellcode\\loader.h",
+              "RelativeToolTip": "PE-To-Shellcode\\loader.h",
+              "ViewState": "AQIAAM4AAAAAAAAAAAAAAKAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-25T11:06:24.422Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PE-To-Shellcode.cpp",
+              "DocumentMoniker": "C:\\Users\\aharon\\source\\repos\\PE-To-Shellcode\\PE-To-Shellcode\\PE-To-Shellcode.cpp",
+              "RelativeDocumentMoniker": "PE-To-Shellcode\\PE-To-Shellcode.cpp",
+              "ToolTip": "C:\\Users\\aharon\\source\\repos\\PE-To-Shellcode\\PE-To-Shellcode\\PE-To-Shellcode.cpp",
+              "RelativeToolTip": "PE-To-Shellcode\\PE-To-Shellcode.cpp",
+              "ViewState": "AQIAADAAAAAAAAAAAAAAAIUAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-11-25T10:43:27.066Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
