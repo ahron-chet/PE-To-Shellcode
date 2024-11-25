@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
-
+#include "./utils.h"
 
 void int_to_bytes_le(int value, char* buffer, int num_bytes) {
     for (int i = 0; i < num_bytes; i++) {
@@ -92,7 +92,7 @@ size_t calculate_buf_length(size_t stack_alignment_part_size, size_t end_of_stub
     return total_length;
 }
 
-int main() {
+char* GenBuf() {
 
     char stack_alignment_part[] = { 1 };
     char end_of_stub[] = { 1 };
@@ -115,11 +115,11 @@ int main() {
     buf_size += call_malloc_size;
     free(call_malloc_code);
 
-    // Offsets for call instructions
-    int OFFSET_TO_MALLOC = 0x84E + 0x24 + 10; // Adjust based on your actual values
+    // Offsets for malloc call instructions
+    int OFFSET_TO_MALLOC = 0xaf3 + 0x24 + 10; // size of rest of stub from end of pe up to malloc + size of stub from beg to call malloc
     int OFFSET_TO_MALLOC_CALL_INS = 0x1F;
 
-    // Append 'mov rcx, QWORD PTR [rsp+0x20]'
+
     char mov_rcx[] = {
         0x48, 0x8B, 0x4C, 0x24, 0x20 // mov rcx, QWORD PTR [rsp+0x20]
     };
@@ -146,18 +146,6 @@ int main() {
     memcpy(buf + OFFSET_TO_MALLOC_CALL_INS, call_bytes, call_bytes_size);
     free(call_bytes);
 
-    // Write to file
-    FILE* f = fopen("C:\\test\\out.bin", "wb");
-    if (f) {
-        fwrite(buf, 1, buf_size, f);
-        fclose(f);
-    }
-    else {
-        printf("Failed to open file for writing.\n");
-    }
 
-    // Clean up
-    free(buf);
-
-    return 0;
+    return buf;
 }

