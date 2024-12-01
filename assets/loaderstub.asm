@@ -12,7 +12,7 @@ mov    ecx, 0x5b2
 call   0x7e91
 mov    QWORD PTR [rsp + 0x20], rax
 mov    rcx, QWORD PTR [rsp + 0x20]
-mov    BYTE PTR [rcx + 0x5b1], 0x4d ; pe buffer store
+mov    BYTE PTR [rcx + 0x5b1], 0x4d
 mov    rcx, QWORD PTR [rsp + 0x20]
 call   0x26a8
 test   eax, eax
