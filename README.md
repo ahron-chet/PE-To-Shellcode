@@ -7,7 +7,7 @@ The **PE to Shellcode Generator** is a robust tool designed to convert Portable 
 
 ## Features
 
-- **Support for All PE Types**: Compatible with executables, DLLs, and other PE variants.
+- **Support for All PE Types**: Compatible with executables, include DotNet pyinstaller etc.
 - **Embedded Arguments**: Allows inclusion of custom arguments directly into the shellcode.
 - **Custom PE Loader**:
   - Handles imports dynamically.
