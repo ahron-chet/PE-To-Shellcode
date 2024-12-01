@@ -1,0 +1,6 @@
+﻿  PeWithArgs.cpp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 4 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  PeWithArgs.vcxproj -> C:\haim\PE-To-Shellcode\x64\Release\PeWithArgs.exe

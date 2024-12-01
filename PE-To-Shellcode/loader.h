@@ -8,18 +8,6 @@
 #endif
 
 
-typedef struct _TEB {
-	PVOID Reserved1[12];
-	PPEB  ProcessEnvironmentBlock;
-	PVOID Reserved2[399];
-	BYTE  Reserved3[1952];
-	PVOID TlsSlots[64];
-	BYTE  Reserved4[8];
-	PVOID Reserved5[26];
-	PVOID ReservedForOle;
-	PVOID Reserved6[4];
-	PVOID TlsExpansionSlots;
-} TEB, * PTEB;
 
 typedef struct _UNICODE_STRING
 {
@@ -145,18 +133,19 @@ typedef struct _PEB {
 	ULONG                   SessionId;
 } PEB, * PPEB;
 
+typedef struct _TEB {
+	PVOID Reserved1[12];
+	PPEB  ProcessEnvironmentBlock;
+	PVOID Reserved2[399];
+	BYTE  Reserved3[1952];
+	PVOID TlsSlots[64];
+	BYTE  Reserved4[8];
+	PVOID Reserved5[26];
+	PVOID ReservedForOle;
+	PVOID Reserved6[4];
+	PVOID TlsExpansionSlots;
+} TEB, * PTEB;
 
-typedef struct _PEB_LDR_DATA
-{
-	ULONG Length;
-	BOOLEAN Initialized;
-	HANDLE SsHandle;
-	LIST_ENTRY InLoadOrderModuleList;
-	LIST_ENTRY InMemoryOrderModuleList;
-	LIST_ENTRY InInitializationOrderModuleList;
-	PVOID      EntryInProgress;
-
-} PEB_LDR_DATA, * PPEB_LDR_DATA;
 
 
 

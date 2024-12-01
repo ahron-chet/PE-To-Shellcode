@@ -3,20 +3,28 @@
   "WorkspaceRootPath": "C:\\haim\\PE-To-Shellcode\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{84FFE583-0801-41FD-BDD3-4C5D627FD8BB}|PE-To-Shellcode\\PE-To-Shellcode.vcxproj|C:\\haim\\PE-To-Shellcode\\PE-To-Shellcode\\PE-To-Shellcode.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{84FFE583-0801-41FD-BDD3-4C5D627FD8BB}|PE-To-Shellcode\\PE-To-Shellcode.vcxproj|solutionrelative:PE-To-Shellcode\\PE-To-Shellcode.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{84FFE583-0801-41FD-BDD3-4C5D627FD8BB}|PE-To-Shellcode\\PE-To-Shellcode.vcxproj|C:\\haim\\PE-To-Shellcode\\PE-To-Shellcode\\loader.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{84FFE583-0801-41FD-BDD3-4C5D627FD8BB}|PE-To-Shellcode\\PE-To-Shellcode.vcxproj|solutionrelative:PE-To-Shellcode\\loader.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{F90A75AC-05E3-4FB4-80E5-4538AFC79953}|RunShellcode\\RunShellcode.vcxproj|C:\\haim\\PE-To-Shellcode\\RunShellcode\\RunShellcode.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{F90A75AC-05E3-4FB4-80E5-4538AFC79953}|RunShellcode\\RunShellcode.vcxproj|solutionrelative:RunShellcode\\RunShellcode.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{84FFE583-0801-41FD-BDD3-4C5D627FD8BB}|PE-To-Shellcode\\PE-To-Shellcode.vcxproj|C:\\haim\\PE-To-Shellcode\\PE-To-Shellcode\\utils.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{84FFE583-0801-41FD-BDD3-4C5D627FD8BB}|PE-To-Shellcode\\PE-To-Shellcode.vcxproj|solutionrelative:PE-To-Shellcode\\utils.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{84FFE583-0801-41FD-BDD3-4C5D627FD8BB}|PE-To-Shellcode\\PE-To-Shellcode.vcxproj|C:\\haim\\PE-To-Shellcode\\PE-To-Shellcode\\PE-To-Shellcode.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{84FFE583-0801-41FD-BDD3-4C5D627FD8BB}|PE-To-Shellcode\\PE-To-Shellcode.vcxproj|solutionrelative:PE-To-Shellcode\\PE-To-Shellcode.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F2DD41A-0AD7-4ABB-9CD5-87373491CDAB}|PeWithArgs\\PeWithArgs.vcxproj|C:\\haim\\PE-To-Shellcode\\PeWithArgs\\PeWithArgs.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2F2DD41A-0AD7-4ABB-9CD5-87373491CDAB}|PeWithArgs\\PeWithArgs.vcxproj|solutionrelative:PeWithArgs\\PeWithArgs.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{84FFE583-0801-41FD-BDD3-4C5D627FD8BB}|PE-To-Shellcode\\PE-To-Shellcode.vcxproj|C:\\haim\\PE-To-Shellcode\\PE-To-Shellcode\\loader.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{84FFE583-0801-41FD-BDD3-4C5D627FD8BB}|PE-To-Shellcode\\PE-To-Shellcode.vcxproj|solutionrelative:PE-To-Shellcode\\loader.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84FFE583-0801-41FD-BDD3-4C5D627FD8BB}|PE-To-Shellcode\\PE-To-Shellcode.vcxproj|C:\\haim\\PE-To-Shellcode\\PE-To-Shellcode\\loader.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{84FFE583-0801-41FD-BDD3-4C5D627FD8BB}|PE-To-Shellcode\\PE-To-Shellcode.vcxproj|solutionrelative:PE-To-Shellcode\\loader.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,55 +34,80 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "utils.h",
-              "DocumentMoniker": "C:\\haim\\PE-To-Shellcode\\PE-To-Shellcode\\utils.h",
-              "RelativeDocumentMoniker": "PE-To-Shellcode\\utils.h",
-              "ToolTip": "C:\\haim\\PE-To-Shellcode\\PE-To-Shellcode\\utils.h",
-              "RelativeToolTip": "PE-To-Shellcode\\utils.h",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAACIAAAA+AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-25T19:32:06.333Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "loader.c",
-              "DocumentMoniker": "C:\\haim\\PE-To-Shellcode\\PE-To-Shellcode\\loader.c",
-              "RelativeDocumentMoniker": "PE-To-Shellcode\\loader.c",
-              "ToolTip": "C:\\haim\\PE-To-Shellcode\\PE-To-Shellcode\\loader.c",
-              "RelativeToolTip": "PE-To-Shellcode\\loader.c",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEwCAAA2AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-11-25T11:53:43.922Z",
+              "DocumentIndex": 0,
+              "Title": "RunShellcode.cpp",
+              "DocumentMoniker": "C:\\haim\\PE-To-Shellcode\\RunShellcode\\RunShellcode.cpp",
+              "RelativeDocumentMoniker": "RunShellcode\\RunShellcode.cpp",
+              "ToolTip": "C:\\haim\\PE-To-Shellcode\\RunShellcode\\RunShellcode.cpp",
+              "RelativeToolTip": "RunShellcode\\RunShellcode.cpp",
+              "ViewState": "AQIAABcAAAAAAAAAAAAwwCcAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-12-01T09:09:19.299Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "PeWithArgs.cpp",
+              "DocumentMoniker": "C:\\haim\\PE-To-Shellcode\\PeWithArgs\\PeWithArgs.cpp",
+              "RelativeDocumentMoniker": "PeWithArgs\\PeWithArgs.cpp",
+              "ToolTip": "C:\\haim\\PE-To-Shellcode\\PeWithArgs\\PeWithArgs.cpp",
+              "RelativeToolTip": "PeWithArgs\\PeWithArgs.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-12-01T08:40:54.349Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "utils.h",
+              "DocumentMoniker": "C:\\haim\\PE-To-Shellcode\\PE-To-Shellcode\\utils.h",
+              "RelativeDocumentMoniker": "PE-To-Shellcode\\utils.h",
+              "ToolTip": "C:\\haim\\PE-To-Shellcode\\PE-To-Shellcode\\utils.h",
+              "RelativeToolTip": "PE-To-Shellcode\\utils.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-12-01T08:03:38.831Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "loader.c",
+              "DocumentMoniker": "C:\\haim\\PE-To-Shellcode\\PE-To-Shellcode\\loader.c",
+              "RelativeDocumentMoniker": "PE-To-Shellcode\\loader.c",
+              "ToolTip": "C:\\haim\\PE-To-Shellcode\\PE-To-Shellcode\\loader.c",
+              "RelativeToolTip": "PE-To-Shellcode\\loader.c",
+              "ViewState": "AQIAADoCAAAAAAAAAAAAAEwCAAA2AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-25T11:53:43.922Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "loader.h",
               "DocumentMoniker": "C:\\haim\\PE-To-Shellcode\\PE-To-Shellcode\\loader.h",
               "RelativeDocumentMoniker": "PE-To-Shellcode\\loader.h",
               "ToolTip": "C:\\haim\\PE-To-Shellcode\\PE-To-Shellcode\\loader.h",
               "RelativeToolTip": "PE-To-Shellcode\\loader.h",
-              "ViewState": "AQIAAM4AAAAAAAAAAAAAAKAAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAJMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-11-25T11:06:24.422Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "PE-To-Shellcode.cpp",
               "DocumentMoniker": "C:\\haim\\PE-To-Shellcode\\PE-To-Shellcode\\PE-To-Shellcode.cpp",
               "RelativeDocumentMoniker": "PE-To-Shellcode\\PE-To-Shellcode.cpp",
               "ToolTip": "C:\\haim\\PE-To-Shellcode\\PE-To-Shellcode\\PE-To-Shellcode.cpp",
               "RelativeToolTip": "PE-To-Shellcode\\PE-To-Shellcode.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAATAAAA",
+              "ViewState": "AQIAAGcBAAAAAAAAAAAAAIQBAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-11-25T10:43:27.066Z",
               "EditorCaption": ""

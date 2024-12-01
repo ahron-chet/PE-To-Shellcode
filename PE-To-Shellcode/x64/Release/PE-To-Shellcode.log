@@ -1,0 +1,27 @@
+﻿  loader.c
+  PE-To-Shellcode.cpp
+C:\haim\PE-To-Shellcode\PE-To-Shellcode\utils.h(49,35): warning C4267: 'argument': conversion from 'size_t' to 'DWORD', possible loss of data
+C:\haim\PE-To-Shellcode\PE-To-Shellcode\PE-To-Shellcode.cpp(18,14): warning C4309: '=': truncation of constant value
+C:\haim\PE-To-Shellcode\PE-To-Shellcode\PE-To-Shellcode.cpp(21,14): warning C4309: '=': truncation of constant value
+C:\haim\PE-To-Shellcode\PE-To-Shellcode\PE-To-Shellcode.cpp(37,19): warning C4309: '=': truncation of constant value
+C:\haim\PE-To-Shellcode\PE-To-Shellcode\PE-To-Shellcode.cpp(45,19): warning C4309: '=': truncation of constant value
+C:\haim\PE-To-Shellcode\PE-To-Shellcode\PE-To-Shellcode.cpp(46,19): warning C4309: '=': truncation of constant value
+C:\haim\PE-To-Shellcode\PE-To-Shellcode\PE-To-Shellcode.cpp(60,14): warning C4309: '=': truncation of constant value
+C:\haim\PE-To-Shellcode\PE-To-Shellcode\PE-To-Shellcode.cpp(79,14): warning C4309: '=': truncation of constant value
+C:\haim\PE-To-Shellcode\PE-To-Shellcode\PE-To-Shellcode.cpp(162,46): warning C4838: conversion from 'int' to 'char' requires a narrowing conversion
+C:\haim\PE-To-Shellcode\PE-To-Shellcode\PE-To-Shellcode.cpp(162,46): warning C4309: 'initializing': truncation of constant value
+C:\haim\PE-To-Shellcode\PE-To-Shellcode\PE-To-Shellcode.cpp(167,40): warning C4838: conversion from 'int' to 'char' requires a narrowing conversion
+C:\haim\PE-To-Shellcode\PE-To-Shellcode\PE-To-Shellcode.cpp(167,40): warning C4309: 'initializing': truncation of constant value
+C:\haim\PE-To-Shellcode\PE-To-Shellcode\PE-To-Shellcode.cpp(205,46): warning C4838: conversion from 'int' to 'char' requires a narrowing conversion
+C:\haim\PE-To-Shellcode\PE-To-Shellcode\PE-To-Shellcode.cpp(205,46): warning C4309: 'initializing': truncation of constant value
+C:\haim\PE-To-Shellcode\PE-To-Shellcode\PE-To-Shellcode.cpp(210,40): warning C4838: conversion from 'int' to 'char' requires a narrowing conversion
+C:\haim\PE-To-Shellcode\PE-To-Shellcode\PE-To-Shellcode.cpp(210,40): warning C4309: 'initializing': truncation of constant value
+C:\haim\PE-To-Shellcode\PE-To-Shellcode\PE-To-Shellcode.cpp(259,46): warning C4838: conversion from 'int' to 'char' requires a narrowing conversion
+C:\haim\PE-To-Shellcode\PE-To-Shellcode\PE-To-Shellcode.cpp(259,46): warning C4309: 'initializing': truncation of constant value
+C:\haim\PE-To-Shellcode\PE-To-Shellcode\PE-To-Shellcode.cpp(264,40): warning C4838: conversion from 'int' to 'char' requires a narrowing conversion
+C:\haim\PE-To-Shellcode\PE-To-Shellcode\PE-To-Shellcode.cpp(264,40): warning C4309: 'initializing': truncation of constant value
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 14 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  PE-To-Shellcode.vcxproj -> C:\haim\PE-To-Shellcode\x64\Release\PE-To-Shellcode.exe
