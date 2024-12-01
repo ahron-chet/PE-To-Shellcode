@@ -134,7 +134,7 @@ size_t calculate_buf_capacity(size_t stack_alignment_part_size, size_t end_of_st
 char* GenBuf(char* args, size_t args_size, char* pebuf, size_t pebuf_size,
     char* stack_alignment_part, size_t stack_alignment_part_size,
     char* end_of_stub, size_t end_of_stub_size, size_t* total_size) {
-    
+
     int OFFSET_TO_SET_ARGS = 0x1C; // Offset to set args without buffers from end of buffers
     int OFFSET_TO_MALLOC = 0xEC8;  // Offset to malloc without buffers from end of buffers
 

@@ -15,7 +15,7 @@ PVOID GetFileBytes(const char* fileName, size_t* size) {
         return NULL;
     }
 
-    PVOID outBuffer = malloc(fileSize); 
+    PVOID outBuffer = malloc(fileSize);
     if (!outBuffer) {
         CloseHandle(hFile);
         return NULL;

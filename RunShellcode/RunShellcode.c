@@ -22,9 +22,9 @@ int main(int argc, char* argv[])
         free(shellcode);
         return 1;
     }
-    
 
- 
+
+
     printf("[DEBUG] Shellcode file size: %ld bytes\n", fileSize);
 
 
