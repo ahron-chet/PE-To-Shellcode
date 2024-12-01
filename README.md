@@ -3,7 +3,7 @@
 
 ## Overview
 
-The **PE to Shellcode Generator** is a robust tool designed to convert Portable Executable (PE) files into shellcode that supports embedded arguments and ensures compatibility with all types of PE files. It implements a custom PE loader in assembly (optimized for shellcode use) that handles critical aspects like imports, TLS callbacks, relocations, and permissions to create a seamless execution environment for the embedded PE.
+The **PE to Shellcode Generator** is a robust tool designed to convert Portable Executable (PE) files into shellcode that supports embedded arguments and ensures compatibility with all types of PE files. It implements a custom PE loader in assembly (optimized for shellcode use) that handles critical aspects like imports, TLS callbacks, relocations, and permissions to create a seamless execution environment for the embedded PE,T he project currently supports only x64. Support for 32-bit will be added soon.
 
 ## Features
 
