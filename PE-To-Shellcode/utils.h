@@ -6,26 +6,26 @@
 PVOID GetFileBytes(const char* fileName, size_t* size) {
     HANDLE hFile = CreateFileA(fileName, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
     if (hFile == INVALID_HANDLE_VALUE) {
-        return nullptr;
+        return NULL;
     }
 
     DWORD fileSize = GetFileSize(hFile, NULL);
     if (fileSize == INVALID_FILE_SIZE) {
         CloseHandle(hFile);
-        return nullptr;
+        return NULL;
     }
 
     PVOID outBuffer = malloc(fileSize); 
     if (!outBuffer) {
         CloseHandle(hFile);
-        return nullptr;
+        return NULL;
     }
 
     DWORD bytesRead = 0;
     if (!ReadFile(hFile, outBuffer, fileSize, &bytesRead, NULL)) {
         CloseHandle(hFile);
         free(outBuffer);
-        return nullptr;
+        return NULL;
     }
 
     CloseHandle(hFile);

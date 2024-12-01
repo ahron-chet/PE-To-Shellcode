@@ -1,8 +1,0 @@
-﻿  RunShellcode.cpp
-C:\haim\PE-To-Shellcode\PE-To-Shellcode\utils.h(49,35): warning C4267: 'argument': conversion from 'size_t' to 'DWORD', possible loss of data
-C:\haim\PE-To-Shellcode\RunShellcode\RunShellcode.cpp(28,12): warning C4477: 'printf' : format string '%ld' requires an argument of type 'long', but variadic argument 1 has type 'size_t'
-  Generating code
-  Previous IPDB not found, fall back to full compilation.
-  All 5 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
-  Finished generating code
-  RunShellcode.vcxproj -> C:\haim\PE-To-Shellcode\x64\Release\RunShellcode.exe

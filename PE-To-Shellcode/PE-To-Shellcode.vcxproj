@@ -128,7 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="loader.c" />
-    <ClCompile Include="PE-To-Shellcode.cpp" />
+    <ClCompile Include="PE-To-Shellcode.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="loader.h" />

@@ -594,3 +594,86 @@ BOOL LoadAndExecute(char* raw_pe) {
     // std::cout << "[DEBUG] LoadAndExecute completed successfully" << std::endl;
     return TRUE;
 }
+
+
+inline WCHAR* utf8_to_wchar(const char* s, size_t* size) {
+    if (s == NULL) return NULL;
+
+    // Estimate the maximum length needed for the wide string
+    size_t maxlen = 0;
+    for (const char* p = s; *p; ++p) {
+        maxlen++;
+    }
+
+    // Allocate memory for the wide string
+    *size = (maxlen + 1) * sizeof(WCHAR);
+    WCHAR* wstr = (WCHAR*)malloc_custom((maxlen + 1) * sizeof(WCHAR));
+    if (!wstr) return NULL;
+
+    const unsigned char* src = (const unsigned char*)s;
+    WCHAR* dst = wstr;
+
+    while (*src) {
+        WCHAR wc;
+        size_t bytes = 0;
+
+        if (*src < 0x80) {
+            // 1-byte sequence (ASCII)
+            wc = *src++;
+        }
+        else if ((*src & 0xE0) == 0xC0) {
+            // 2-byte sequence
+            if ((src[1] & 0xC0) != 0x80) { freecustom(wstr); return NULL; }
+            wc = ((*src & 0x1F) << 6) | (src[1] & 0x3F);
+            src += 2;
+        }
+        else if ((*src & 0xF0) == 0xE0) {
+            // 3-byte sequence
+            if ((src[1] & 0xC0) != 0x80 || (src[2] & 0xC0) != 0x80) { freecustom(wstr); return NULL; }
+            wc = ((*src & 0x0F) << 12) |
+                ((src[1] & 0x3F) << 6) |
+                (src[2] & 0x3F);
+            src += 3;
+        }
+        else if ((*src & 0xF8) == 0xF0) {
+            // 4-byte sequence
+            if ((src[1] & 0xC0) != 0x80 ||
+                (src[2] & 0xC0) != 0x80 ||
+                (src[3] & 0xC0) != 0x80) {
+                freecustom(wstr);
+                return NULL;
+            }
+            wc = ((*src & 0x07) << 18) |
+                ((src[1] & 0x3F) << 12) |
+                ((src[2] & 0x3F) << 6) |
+                (src[3] & 0x3F);
+            src += 4;
+        }
+        else {
+            // Invalid UTF-8 sequence
+            freecustom(wstr);
+            return NULL;
+        }
+
+        *dst++ = wc;
+    }
+
+    *dst = L'\0'; // Null-terminate the wide string
+    return wstr;
+}
+
+
+inline void set_command_line(char* args) {
+    PPEB pPeb = NULL;
+#if defined(_WIN64)
+    pPeb = (PPEB)__readgsqword(0x60);
+#else
+    pPeb = (PPEB)__readfsdword(0x30);
+#endif
+    size_t len;
+
+    wchar_t* buf = utf8_to_wchar(args, &len);
+    memcpycustom(pPeb->ProcessParameters->CommandLine.Buffer, buf, len);
+    pPeb->ProcessParameters->CommandLine.Length = (USHORT)len;
+    pPeb->ProcessParameters->CommandLine.MaximumLength = (USHORT)(len);
+}

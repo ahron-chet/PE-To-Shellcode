@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="PE-To-Shellcode.cpp">
+    <ClCompile Include="PE-To-Shellcode.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="loader.c">
