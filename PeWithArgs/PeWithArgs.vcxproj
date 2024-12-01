@@ -27,6 +27,7 @@
     <ProjectGuid>{2f2dd41a-0ad7-4abb-9cd5-87373491cdab}</ProjectGuid>
     <RootNamespace>PeWithArgs</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>ExamplePeWithArgs</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
